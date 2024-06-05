@@ -23,7 +23,7 @@ export function ExpenseList() {
     return (
         <ul className="expense-list">
             <li>
-                <p className='labels headerLabels'>
+                <p className='labels header-labels'>
                     <label>Date</label>
                     <label>Amount</label>
                     <label>Category</label>
@@ -36,8 +36,8 @@ export function ExpenseList() {
                     <ExpensePreview key={expense._id} expense={expense} />
                 </li>
             ))}
-            <p>
-                <label>Count:{expenses.length} </label>
+            <p className='footer header-labels'>
+                <label>Count: {expenses.length} </label>
                 <label>Sum: {sum}</label>
             </p>
         </ul>

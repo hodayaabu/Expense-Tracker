@@ -1,0 +1,86 @@
+.expenses-index {
+    display: flex;
+    flex-direction: column;
+    margin: 100px auto;
+    width: 1000px;
+    padding: 32px 40px;
+    background: #ffffff;
+    border-radius: 3px;
+    box-shadow: #0000001a 0px 0px 10px;
+    box-sizing: border-box;
+    color: rgb(43, 60, 80);
+
+    .actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .filter-by-date {
+        display: flex;
+        gap: 8px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 3px;
+        box-shadow: #0000001a 0px 0px 10px;
+        box-sizing: border-box;
+        color: #5e6c84;
+
+        .category {
+            background: #ffffff;
+            border-radius: 3px;
+            box-shadow: #0000001a 0px 0px 10px;
+            box-sizing: border-box;
+            color: #5e6c84;
+            padding: 4px;
+            width: 100%;
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    .btn {
+        background-color: rgb(43, 60, 80);
+        box-shadow: none;
+        border: none;
+        color: white;
+        border-radius: 3px;
+        padding: 6px 12px;
+        font-weight: 400;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .filter-by-date {
+        label {
+            color: rgb(43, 60, 80);
+            font-weight: 400;
+            font-size: 16px;
+
+        }
+    }
+
+    .filter-by-category {
+        padding: 10px;
+        background-color: rgb(43, 60, 80);
+        box-shadow: none;
+        border: none;
+        color: white;
+
+        .option {
+            padding: 7px;
+        }
+
+    }
+}

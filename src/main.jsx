@@ -1,4 +1,4 @@
-// import "./assets/scss/style.scss";
+import "./assets/scss/style.scss";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
 

@@ -1,0 +1,336 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: OpenSans, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto", "Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(245, 237, 237);
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: normal;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: inherit;
+}
+button * {
+  pointer-events: none;
+}
+
+input {
+  font-family: inherit;
+  text-align: inherit;
+}
+input:focus {
+  outline: none;
+}
+
+a.active {
+  font-weight: 600;
+}
+
+svg {
+  fill: white;
+  box-sizing: content-box;
+  height: 24px;
+  width: 24px;
+}
+
+textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto", "Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
+  resize: none;
+  border-radius: 4px;
+  border-width: 0px;
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+}
+textarea:focus {
+  background-color: white;
+  outline: none;
+}
+
+.main-title {
+  color: rgb(43, 60, 80);
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 70px;
+  margin-top: 100px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 20px;
+}
+
+.login-signup-page {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 0px;
+  position: relative;
+  z-index: 1;
+}
+
+.login-signup-preview {
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+  width: 400px;
+  padding: 32px 40px;
+  background: #ffffff;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1019607843) 0px 0px 10px;
+  box-sizing: border-box;
+  color: #5e6c84;
+}
+.login-signup-preview .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.login-signup-preview .header .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30px;
+  gap: 10px;
+}
+.login-signup-preview .header .title h1 {
+  font-weight: 700;
+}
+.login-signup-preview .header .sub-title {
+  font-weight: 600;
+  font-size: 20px;
+}
+.login-signup-preview input:-moz-placeholder-shown {
+  text-overflow: ellipsis;
+}
+.login-signup-preview input:placeholder-shown {
+  text-overflow: ellipsis;
+}
+.login-signup-preview input:not([data-compact]) {
+  padding: var(--ds-space-100, 8px) var(--ds-space-075, 6px);
+  height: 2.57em;
+}
+.login-signup-preview .form-item {
+  margin-top: 20px;
+  background-color: #FAFBFC;
+  color: #091E42;
+  cursor: text;
+  border-radius: 3px;
+  border: 2px solid #DFE1E6;
+  box-sizing: border-box;
+  font-size: 14px;
+  min-width: 0px;
+  outline: none;
+  width: 100%;
+  writing-mode: horizontal-tb !important;
+  padding-block: 1px;
+  padding-inline: 2px;
+  line-height: 1.42857;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+.login-signup-preview .btn {
+  background-color: rgb(43, 60, 80);
+  box-shadow: none;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+.login-signup-preview .cancel-btn {
+  border-radius: 3px;
+  border: 2px solid #DFE1E6;
+  box-sizing: border-box;
+  font-size: 14px;
+  float: right;
+}
+.login-signup-preview .link {
+  margin-top: 10px;
+  margin-left: 12px;
+  color: rgb(43, 60, 80);
+  font-size: 13px;
+}
+
+.expenses-index {
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+  width: 1000px;
+  padding: 32px 40px;
+  background: #ffffff;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1019607843) 0px 0px 10px;
+  box-sizing: border-box;
+  color: rgb(43, 60, 80);
+}
+.expenses-index .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.expenses-index .filter-by-date {
+  display: flex;
+  gap: 8px;
+}
+.expenses-index .form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1019607843) 0px 0px 10px;
+  box-sizing: border-box;
+  color: #5e6c84;
+}
+.expenses-index .form .category {
+  background: #ffffff;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1019607843) 0px 0px 10px;
+  box-sizing: border-box;
+  color: #5e6c84;
+  padding: 4px;
+  width: 100%;
+}
+.expenses-index .form .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.expenses-index .btn {
+  background-color: rgb(43, 60, 80);
+  box-shadow: none;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+}
+.expenses-index .filter-by-date label {
+  color: rgb(43, 60, 80);
+  font-weight: 400;
+  font-size: 16px;
+}
+.expenses-index .filter-by-category {
+  padding: 10px;
+  background-color: rgb(43, 60, 80);
+  box-shadow: none;
+  border: none;
+  color: white;
+}
+.expenses-index .filter-by-category .option {
+  padding: 7px;
+}
+
+.nav-links {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  margin-bottom: 20px;
+  background-color: rgb(43, 60, 80);
+}
+.nav-links .nav-link {
+  font-weight: 600;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-links .logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-links .logo-container .description {
+  font-size: 14px;
+}
+.nav-links .logo-container .logo {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.expense-list {
+  list-style: none;
+}
+.expense-list .labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+.expense-list label {
+  width: 70px;
+}
+.expense-list .header-labels {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.expense-list .footer {
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}/*# sourceMappingURL=style.css.map */

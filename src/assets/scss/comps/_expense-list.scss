@@ -1,0 +1,27 @@
+.expense-list {
+    list-style: none;
+
+    .labels {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    label {
+        width: 70px;
+    }
+
+    .header-labels {
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .footer {
+        margin-top: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+}
