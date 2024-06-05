@@ -2,6 +2,7 @@ export const utilService = {
     makeId,
     getDate,
     createExpense,
+    getDefaultFilter,
     loadFromStorage,
     saveToStorage
 }
@@ -33,6 +34,10 @@ function createExpense(category = '', amount, note = '') {
     return newExpense
 }
 
+
+function getDefaultFilter() {
+    return { category: '', date: null }
+}
 
 function saveToStorage(key, value) {
     localStorage[key] = JSON.stringify(value);

@@ -8,7 +8,7 @@ _createExpenses()
 
 export const expenseService = {
     query,
-    post
+    post,
 }
 
 function query() {

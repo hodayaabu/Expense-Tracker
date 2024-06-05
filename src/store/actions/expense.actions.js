@@ -11,10 +11,17 @@ export const expenseActions = {
     addExpenses
 };
 
-async function loadExpenses() {
+async function loadExpenses(filterBy = {}) {
     try {
         const expenses = await expenseService.query();
-        store.dispatch({ type: SET_EXPENSES, expenses });
+        if (filterBy.category) {
+            const filteredExpenses = expenses.filter((expense) => expense.category === filterBy.category)
+            store.dispatch({ type: SET_EXPENSES, expenses: filteredExpenses });
+        } else {
+            store.dispatch({ type: SET_EXPENSES, expenses });
+        }
+
+
     } catch (err) {
         console.log("Had issues loading expenses", err);
         throw err;

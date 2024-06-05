@@ -7,24 +7,35 @@ import { utilService } from '../services/util.service'
 export function Home() {
     const [isAdding, setIsAdding] = useState(false)
     const [newExpense, setNewExpense] = useState(utilService.createExpense())
+    const [filterBy, setFilterBy] = useState(utilService.getDefaultFilter())
     const expenses = useSelector((storeState) => storeState.expenseModule.expenses);
 
     useEffect(() => {
         loadExpenses()
-    }, [expenses])
+    }, [expenses, filterBy])
 
     async function loadExpenses() {
         try {
-            await expenseActions.loadExpenses();
+            await expenseActions.loadExpenses(filterBy);
         } catch (err) {
             console.log("Issues loading expenses ,", err);
         }
     }
+
+    async function handleAddingExpense(ev) {
+        ev.preventDefault()
+        try {
+            handleIsAdding()
+            await expenseActions.addExpenses(newExpense);
+        } catch (err) {
+            console.log("Issues adding expenses ,", err);
+        }
+    }
+
     function handleIsAdding() {
         setIsAdding(!isAdding)
         if (!isAdding) setNewExpense(utilService.createExpense())
     }
-
 
     function handleChange(ev) {
         let { value, name: field, type } = ev.target
@@ -38,16 +49,11 @@ export function Home() {
         setNewExpense((prevNewExpense) => ({ ...prevNewExpense, [field]: value }))
     }
 
-
-    async function handleAddingExpense(ev) {
-        ev.preventDefault()
-        try {
-            handleIsAdding()
-            await expenseActions.addExpenses(newExpense);
-        } catch (err) {
-            console.log("Issues adding expenses ,", err);
-        }
+    function handleChangeFilter(ev) {
+        let { value, name: field } = ev.target
+        setFilterBy((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
     }
+
 
     if (!expenses) return <div>Loading...</div>
     return (
@@ -94,6 +100,21 @@ export function Home() {
                         </div>
 
                     )}
+
+                    <div className="filter">
+                        <select
+                            name="category"
+                            value={filterBy.category}
+                            onChange={handleChangeFilter}
+                        >
+                            <option value="">Filter By Category</option>
+                            <option value="Food"> Food</option>
+                            <option value="Transport"> Transport</option>
+                            <option value="Utilities"> Utilities</option>
+                            <option value="Shopping"> Shopping</option>
+                            <option value="Other"> Other</option>
+                        </select>
+                    </div>
                     <ExpenseList expenses={expenses} />
                 </div>
             </div>
