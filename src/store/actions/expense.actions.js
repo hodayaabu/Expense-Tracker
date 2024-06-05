@@ -12,14 +12,15 @@ export const expenseActions = {
     addExpenses
 };
 
-async function loadExpenses(filterBy = {}) {
+async function loadExpenses(filterBy = {}, user) {
     try {
         const expenses = await expenseService.query();
+        const userExpenses = expenses.filter((expense) => expense.createBy === user._id)
         if (filterBy.category) {
-            const filteredExpenses = expenses.filter((expense) => expense.category === filterBy.category)
+            const filteredExpenses = userExpenses.filter((expense) => expense.category === filterBy.category)
             store.dispatch({ type: SET_EXPENSES, expenses: filteredExpenses });
         } else if (filterBy.date) {
-            const filteredExpenses = expenses.filter(expense => {
+            const filteredExpenses = userExpenses.filter(expense => {
                 const expenseDate = utilService.getDate(expense.date);
                 const filterDate = utilService.getDate(filterBy.date);
                 return expenseDate === filterDate;

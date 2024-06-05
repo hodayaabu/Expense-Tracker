@@ -10,6 +10,7 @@ export function IndexExpense() {
     const [filterBy, setFilterBy] = useState(utilService.getDefaultFilter())
 
     const expenses = useSelector((storeState) => storeState.expenseModule.expenses);
+    const user = useSelector((storeState) => storeState.userModule.user);
 
     useEffect(() => {
         loadExpenses()
@@ -17,7 +18,7 @@ export function IndexExpense() {
 
     async function loadExpenses() {
         try {
-            await expenseActions.loadExpenses(filterBy);
+            await expenseActions.loadExpenses(filterBy, user);
         } catch (err) {
             console.log("Issues loading expenses ,", err);
         }
@@ -27,7 +28,8 @@ export function IndexExpense() {
         ev.preventDefault()
         try {
             handleIsAdding()
-            await expenseActions.addExpenses(newExpense);
+            const expenseToAdd = { ...newExpense, createBy: user._id }
+            await expenseActions.addExpenses(expenseToAdd);
         } catch (err) {
             console.log("Issues adding expenses ,", err);
         }
