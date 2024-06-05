@@ -115,7 +115,7 @@ export function Home() {
                             <option value="Other"> Other</option>
                         </select>
                     </div>
-                    <ExpenseList expenses={expenses} />
+                    <ExpenseList />
                 </div>
             </div>
         </section>

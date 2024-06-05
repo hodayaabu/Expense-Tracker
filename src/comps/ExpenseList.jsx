@@ -1,14 +1,16 @@
 
 import { useEffect, useState } from 'react'
 import { ExpensePreview } from './ExpensePreview.jsx'
+import { useSelector } from 'react-redux';
 
 
-export function ExpenseList({ expenses }) {
+export function ExpenseList() {
     const [sum, setSum] = useState(0)
+    const expenses = useSelector((storeState) => storeState.expenseModule.expenses);
 
     useEffect(() => {
         calcSum()
-    }, [expenses.amount])
+    }, [expenses])
 
     function calcSum() {
         let x = 0
