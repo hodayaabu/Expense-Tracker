@@ -8,10 +8,15 @@ _createExpenses()
 
 export const expenseService = {
     query,
+    post
 }
 
 function query() {
     return storageService.query(STORAGE_KEY)
+}
+
+function post(expense) {
+    return storageService.post(STORAGE_KEY, expense)
 }
 
 function _createExpenses() {

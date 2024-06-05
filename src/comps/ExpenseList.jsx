@@ -11,9 +11,11 @@ export function ExpenseList({ expenses }) {
     }, [expenses.amount])
 
     function calcSum() {
-        for (let i = 0; i < expenses.length; i++) {
-            setSum(sum + expenses[i].amount)
-        }
+        let x = 0
+        for (let i = 0; i < expenses.length; i++) (
+            x = x + expenses[i].amount
+        )
+        setSum(x)
     }
 
     return (

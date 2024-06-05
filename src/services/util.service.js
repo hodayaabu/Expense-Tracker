@@ -1,6 +1,7 @@
 export const utilService = {
     makeId,
     getDate,
+    createExpense,
     loadFromStorage,
     saveToStorage
 }
@@ -20,6 +21,16 @@ function getDate(time) {
     const month = dateObj.toLocaleString('en-IL', { month: 'short' })
     const day = dateObj.getDate()
     return `${month} ${day}`
+}
+
+function createExpense(category = '', amount, note = '') {
+    const newExpense = {
+        category,
+        amount,
+        note
+    }
+
+    return newExpense
 }
 
 
