@@ -8,6 +8,7 @@ export function Home() {
     const [isAdding, setIsAdding] = useState(false)
     const [newExpense, setNewExpense] = useState(utilService.createExpense())
     const [filterBy, setFilterBy] = useState(utilService.getDefaultFilter())
+
     const expenses = useSelector((storeState) => storeState.expenseModule.expenses);
 
     useEffect(() => {
@@ -102,7 +103,7 @@ export function Home() {
                     )}
 
                     <div className="filter">
-                        <select
+                        <select className='filter-by-category'
                             name="category"
                             value={filterBy.category}
                             onChange={handleChangeFilter}
@@ -114,6 +115,11 @@ export function Home() {
                             <option value="Shopping"> Shopping</option>
                             <option value="Other"> Other</option>
                         </select>
+
+                        <div className="filter-by-date">
+                            <label htmlFor="date">Filter By Date:</label>
+                            <input type="text" name='date' value={filterBy.date} placeholder='yyy-mm-dd' onChange={handleChangeFilter} />
+                        </div>
                     </div>
                     <ExpenseList />
                 </div>

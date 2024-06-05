@@ -36,7 +36,7 @@ function createExpense(category = '', amount, note = '') {
 
 
 function getDefaultFilter() {
-    return { category: '', date: null }
+    return { category: '', date: '' }
 }
 
 function saveToStorage(key, value) {
