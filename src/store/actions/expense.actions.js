@@ -4,7 +4,7 @@ import { store } from "../store";
 import {
     SET_EXPENSES,
     ADD_EXPENSE,
-    DELETE_EXPENSE
+    DELETE_EXPENSE,
 } from "../reducers/expense.reducer";
 import { utilService } from "../../services/util.service.js";
 
@@ -60,4 +60,3 @@ async function deleteExpense(expenseId) {
         throw err;
     }
 }
-

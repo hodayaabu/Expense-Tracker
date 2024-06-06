@@ -9,12 +9,10 @@ export function Header() {
 
     return (
         <>
-
             <nav className="nav-links">
                 <div className="links">
                     <Link to='/' className="nav-link logo-container">
                         <p className="logo"> Expense Tracker</p>
-                        {/* <p className="description">Effortless Budgeting Plan your monthly and annual finances with ease</p> */}
                     </Link >
                     <Link to='/' className="nav-link" >
                         Home

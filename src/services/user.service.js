@@ -14,6 +14,7 @@ const BASE_URL = '//localhost:3030/api/'
 //         : '//localhost:3030/api/'
 
 // const BASE_USER_URL = BASE_URL + 'user/'
+
 const BASE_AUTH_URL = BASE_URL + 'auth/'
 
 export const userService = {

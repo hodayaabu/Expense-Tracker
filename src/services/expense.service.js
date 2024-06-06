@@ -14,7 +14,7 @@ const BASE_URL = "//localhost:3030/api/expense/";
 export const expenseService = {
     query,
     post,
-    remove
+    remove,
 };
 
 // Get List
