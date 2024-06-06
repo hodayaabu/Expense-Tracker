@@ -4,12 +4,10 @@ const axios = Axios.create({
     withCredentials: true,
 });
 
-// const BASE_URL =
-//     window.process.env.NODE_ENV === "production"
-//         ? "/api/expense/"
-//         : "//localhost:3030/api/expense/";
-
-const BASE_URL = "//localhost:3030/api/expense/";
+const BASE_URL =
+    window.process.env.NODE_ENV === "production"
+        ? "/api/expense/"
+        : "//localhost:3030/api/expense/";
 
 export const expenseService = {
     query,
