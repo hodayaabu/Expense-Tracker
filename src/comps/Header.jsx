@@ -11,19 +11,33 @@ export function Header() {
         <>
 
             <nav className="nav-links">
-                <Link to='/' className="nav-link logo-container">
-                    <p className="logo"> Expense Tracker</p>
-                    <p className="description">Effortless Budgeting Plan your monthly and annual finances with ease</p>
-                </Link >
-                {user ? (
-                    <Link to='/logout' className="nav-link" >
-                        Logout
+                <div className="links">
+                    <Link to='/' className="nav-link logo-container">
+                        <p className="logo"> Expense Tracker</p>
+                        {/* <p className="description">Effortless Budgeting Plan your monthly and annual finances with ease</p> */}
+                    </Link >
+                    <Link to='/' className="nav-link" >
+                        Home
                     </Link>
-                ) : (
-                    <Link to='/login' className="nav-link" >
-                        Login
+                    <Link to='/expenses' className="nav-link" >
+                        Expenses
                     </Link>
-                )}
+
+                </div>
+                <div>
+                    {user ? (
+                        <div className="user-section">
+                            <label className="nav-link">Hello {user.username}</label>
+                            <Link to='/logout' className="nav-link" >
+                                Logout
+                            </Link>
+                        </div>
+                    ) : (
+                        <Link to='/login' className="nav-link" >
+                            Login
+                        </Link>
+                    )}
+                </div>
             </nav>
 
         </>
