@@ -7,7 +7,7 @@ var axios = Axios.create({
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
 const BASE_URL =
-    window.process.env.NODE_ENV === 'production'
+    process.env.NODE_ENV !== 'development'
         ? '/api/'
         : '//localhost:3030/api/'
 
