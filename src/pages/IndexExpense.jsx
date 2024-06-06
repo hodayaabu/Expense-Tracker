@@ -18,7 +18,7 @@ export function IndexExpense() {
 
     async function loadExpenses() {
         try {
-            await expenseActions.loadExpenses(filterBy, user);
+            await expenseActions.loadExpenses(filterBy);
         } catch (err) {
             console.log("Issues loading expenses ,", err);
         }
@@ -28,8 +28,8 @@ export function IndexExpense() {
         ev.preventDefault()
         try {
             handleIsAdding()
-            const expenseToAdd = { ...newExpense, createBy: user._id }
-            await expenseActions.addExpenses(expenseToAdd);
+
+            await expenseActions.addExpenses(newExpense);
         } catch (err) {
             console.log("Issues adding expenses ,", err);
         }

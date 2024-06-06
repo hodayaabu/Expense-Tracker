@@ -24,7 +24,7 @@ function getDate(time) {
     return `${month} ${day}`
 }
 
-function createExpense(category = '', amount, note = '') {
+function createExpense(category = '', amount = '', note = '') {
     const newExpense = {
         category,
         amount,

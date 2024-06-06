@@ -1,4 +1,4 @@
-import { expenseService } from "../../services/expense.service.local.js";
+import { expenseService } from "../../services/expense.service.js";
 import { store } from "../store";
 
 import {
@@ -12,15 +12,17 @@ export const expenseActions = {
     addExpenses
 };
 
-async function loadExpenses(filterBy = {}, user) {
+async function loadExpenses(filterBy = {}) {
     try {
         const expenses = await expenseService.query();
-        const userExpenses = expenses.filter((expense) => expense.createBy === user._id)
+
+
         if (filterBy.category) {
-            const filteredExpenses = userExpenses.filter((expense) => expense.category === filterBy.category)
+            const filteredExpenses = expenses.filter((expense) => expense.category.toLowerCase() === filterBy.category.toLowerCase())
             store.dispatch({ type: SET_EXPENSES, expenses: filteredExpenses });
+
         } else if (filterBy.date) {
-            const filteredExpenses = userExpenses.filter(expense => {
+            const filteredExpenses = expenses.filter(expense => {
                 const expenseDate = utilService.getDate(expense.date);
                 const filterDate = utilService.getDate(filterBy.date);
                 return expenseDate === filterDate;
@@ -42,7 +44,7 @@ async function addExpenses(expense) {
         await expenseService.post(expense);
         store.dispatch({ type: ADD_EXPENSE, expense });
     } catch (err) {
-        console.log("Had issues loading expenses", err);
+        console.log("Had issues adding expenses", err);
         throw err;
     }
 }

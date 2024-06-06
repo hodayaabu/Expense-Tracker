@@ -13,11 +13,11 @@ export function ExpenseList() {
     }, [expenses])
 
     function calcSum() {
-        let x = 0
+        let sum = 0
         for (let i = 0; i < expenses.length; i++) (
-            x = x + expenses[i].amount
+            sum = sum + (+expenses[i].amount)
         )
-        setSum(x)
+        setSum(sum)
     }
 
     return (
@@ -32,7 +32,6 @@ export function ExpenseList() {
             {expenses && expenses?.map((expense) => (
 
                 <li key={expense._id}>
-
                     <ExpensePreview key={expense._id} expense={expense} />
                 </li>
             ))}
