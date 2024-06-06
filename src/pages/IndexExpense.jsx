@@ -66,7 +66,7 @@ export function IndexExpense() {
     }
 
 
-    if (!expenses) return <div>Loading...</div>
+    if (!expenses) return <div className='main-title'>you need to log in first</div>
     return (
         <section>
 
