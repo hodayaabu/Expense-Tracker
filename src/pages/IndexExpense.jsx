@@ -3,6 +3,7 @@ import { ExpenseList } from '../comps/ExpenseList'
 import { expenseActions } from '../store/actions/expense.actions'
 import { useSelector } from "react-redux"
 import { utilService } from '../services/util.service'
+import { Chart } from '../comps/Chart'
 
 export function IndexExpense() {
     const [isAdding, setIsAdding] = useState(false)
@@ -10,7 +11,6 @@ export function IndexExpense() {
     const [filterBy, setFilterBy] = useState(utilService.getDefaultFilter())
 
     const expenses = useSelector((storeState) => storeState.expenseModule.expenses);
-    const user = useSelector((storeState) => storeState.userModule.user);
 
     useEffect(() => {
         loadExpenses()
@@ -61,9 +61,10 @@ export function IndexExpense() {
     if (!expenses) return <div>Loading...</div>
     return (
         <section>
-            <div>
-                <h1 className='main-title'>Expense Tracker</h1>
 
+            <h1 className='main-title'>Expense Tracker</h1>
+
+            <div className='expenses-index-container'>
                 <div className="expenses-index">
                     <div className="actions">
                         {!isAdding ? (
@@ -133,7 +134,10 @@ export function IndexExpense() {
 
                     </div>
                     <ExpenseList />
+
                 </div>
+
+                <Chart />
             </div>
         </section>
     )

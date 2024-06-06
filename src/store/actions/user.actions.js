@@ -1,26 +1,17 @@
 import { userService } from "../../services/user.service.js"
 
-import { SET_USER, SET_USERS, UPDATE_USER, ADD_USER } from "../reducers/user.reducer.js"
+import { SET_USER, ADD_USER } from "../reducers/user.reducer.js"
 
 import { store } from "../store.js"
 
-export async function loadUsers() {
-    try {
-        const users = await userService.getUsers()
-        store.dispatch({ type: SET_USERS, users })
-    } catch (err) {
-        console.log('UserActions: err in loadUsers', err)
-    }
-}
-
 export async function saveUser(user) {
     try {
-        const type = user._id ? UPDATE_USER : ADD_USER;
+        const type = ADD_USER;
         const savedUser = await userService.save(user);
         store.dispatch({ type, user: savedUser });
         return savedUser;
     } catch (err) {
-        console.log("Had issues loading users", err);
+        console.log("Had issues adding user", err);
         throw err;
     }
 }

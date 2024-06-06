@@ -205,6 +205,12 @@ textarea:focus {
   font-size: 13px;
 }
 
+.expenses-index-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .expenses-index {
   display: flex;
   flex-direction: column;
@@ -333,4 +339,9 @@ textarea:focus {
   align-items: center;
   justify-content: flex-end;
   gap: 20px;
+}
+
+.chart {
+  width: 600px;
+  height: 400px;
 }/*# sourceMappingURL=style.css.map */

@@ -7,7 +7,7 @@ import { Signup } from '../comps/LoginSignup/Signup.jsx'
 import { Logout } from '../comps/LoginSignup/Logout.jsx'
 
 //Redux
-import { loadUsers, login, signup, logout } from '../store/actions/user.actions.js'
+import { login, signup, logout } from '../store/actions/user.actions.js'
 
 
 export function LoginSignup() {
@@ -15,10 +15,6 @@ export function LoginSignup() {
     const navigate = useNavigate()
     const location = useLocation();
     const pathname = location.pathname;
-
-    useEffect(() => {
-        loadUsers()
-    }, [])
 
     async function onLogin(credentials) {
         try {

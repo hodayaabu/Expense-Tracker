@@ -4,7 +4,8 @@ export const utilService = {
     createExpense,
     getDefaultFilter,
     loadFromStorage,
-    saveToStorage
+    saveToStorage,
+    calcByCategory
 }
 
 
@@ -34,6 +35,25 @@ function createExpense(category = '', amount = '', note = '') {
     return newExpense
 }
 
+function calcByCategory(expensesArr) {
+    const totals = {};
+
+    expensesArr.forEach(expense => {
+        const category = expense.category;
+        const amount = expense.amount;
+
+        if (totals[category]) {
+            totals[category] += amount;
+        } else {
+            totals[category] = amount;
+        }
+    });
+
+    return Object.keys(totals).map(category => ({
+        category: category,
+        amount: totals[category]
+    }));
+}
 
 function getDefaultFilter() {
     return { category: '', date: '' }
