@@ -5,7 +5,7 @@ const axios = Axios.create({
 });
 
 const BASE_URL =
-    window.process.env.NODE_ENV === "production"
+    process.env.NODE_ENV !== 'development'
         ? "/api/expense/"
         : "//localhost:3030/api/expense/";
 
