@@ -35,6 +35,14 @@ export function IndexExpense() {
         }
     }
 
+    async function handleDeleteExpense(id) {
+        try {
+            await expenseActions.deleteExpense(id);
+        } catch (err) {
+            console.log("Issues delete expenses ,", err);
+        }
+    }
+
     function handleIsAdding() {
         setIsAdding(!isAdding)
         if (!isAdding) setNewExpense(utilService.createExpense())
@@ -133,7 +141,7 @@ export function IndexExpense() {
                         </select>
 
                     </div>
-                    <ExpenseList />
+                    <ExpenseList onDeleteExpense={handleDeleteExpense} />
 
                 </div>
 

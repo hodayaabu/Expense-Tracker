@@ -4,7 +4,7 @@ import { ExpensePreview } from './ExpensePreview.jsx'
 import { useSelector } from 'react-redux';
 
 
-export function ExpenseList() {
+export function ExpenseList({ onDeleteExpense }) {
     const [sum, setSum] = useState(0)
     const expenses = useSelector((storeState) => storeState.expenseModule.expenses);
 
@@ -27,12 +27,13 @@ export function ExpenseList() {
                     <label>Date</label>
                     <label>Amount</label>
                     <label>Category</label>
+                    <label></label>
                 </p>
             </li>
             {expenses && expenses?.map((expense) => (
 
                 <li key={expense._id}>
-                    <ExpensePreview key={expense._id} expense={expense} />
+                    <ExpensePreview key={expense._id} expense={expense} onDeleteExpense={onDeleteExpense} />
                 </li>
             ))}
             <p className='footer header-labels'>

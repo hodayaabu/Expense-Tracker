@@ -3,13 +3,15 @@ import { store } from "../store";
 
 import {
     SET_EXPENSES,
-    ADD_EXPENSE
+    ADD_EXPENSE,
+    DELETE_EXPENSE
 } from "../reducers/expense.reducer";
 import { utilService } from "../../services/util.service.js";
 
 export const expenseActions = {
     loadExpenses,
-    addExpenses
+    addExpenses,
+    deleteExpense,
 };
 
 async function loadExpenses(filterBy = {}) {
@@ -45,6 +47,16 @@ async function addExpenses(expense) {
         store.dispatch({ type: ADD_EXPENSE, expense });
     } catch (err) {
         console.log("Had issues adding expenses", err);
+        throw err;
+    }
+}
+
+async function deleteExpense(expenseId) {
+    try {
+        await expenseService.remove(expenseId);
+        store.dispatch({ type: DELETE_EXPENSE, expenseId });
+    } catch (err) {
+        console.log("Had issues delete expenses", err);
         throw err;
     }
 }
